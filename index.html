@@ -7,12 +7,24 @@
 </head>
 <body>
     <h1>メッセージを送ってください</h1>
-    
-    <form action="https://docs.google.com/forms/d/e/1FAIpQLSeogpsFjAb-cLC5WtY4ig2VHpuzj4Nd45FYrBNJJtQToX1h-Q/formResponse" method="POST">
-        
+
+    <div id="thanks_message" style="display:none; color: blue;">
+        送信が完了しました！ありがとうございます。
+    </div>
+
+    <form id="my_form" action="https://docs.google.com/forms/d/e/1FAIpQLSeogpsFjAb-cLC5WtY4ig2VHpuzj4Nd45FYrBNJJtQToX1h-Q/formResponse" method="POST" target="hidden_iframe" onsubmit="showThanks()">
         <input type="text" name="entry.2143642810" placeholder="メッセージを入力" required>
-        
         <button type="submit">送信する</button>
     </form>
+
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+    <script>
+        function showThanks() {
+            // フォームを非表示にして、完了メッセージを出す
+            document.getElementById('my_form').style.display = 'none';
+            document.getElementById('thanks_message').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
